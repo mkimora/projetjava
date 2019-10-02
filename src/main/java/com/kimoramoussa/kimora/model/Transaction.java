@@ -15,10 +15,15 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @JoinColumn(name = "caissier_id" ,referencedColumnName = "id")
+    @JoinColumn(name = "caissier_envoi_id" ,referencedColumnName = "id")
     @ManyToOne(optional = false)
     @JsonIgnoreProperties("depot")
-    private User caissier_id;
+    private User caissier_envoi;
+
+    @JoinColumn(name = "caissier_retrait_id" ,referencedColumnName = "id")
+    @ManyToOne(optional = false)
+    @JsonIgnoreProperties("depot")
+    private User caissier_retrait;
 
 
 

@@ -26,6 +26,10 @@ public class Compte {
     @OneToMany(mappedBy ="compte")
     private List<Depot> depots;
 
+    //@OneToMany(mappedBy ="users")
+    //private List<User> users;
+
+
 
     @NotBlank
     @Size(min=3, max = 50)

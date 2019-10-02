@@ -51,6 +51,9 @@ public class Partenaire {
     //pour recuperer la liste des comptes dans partenaire
     private List<Compte> comptes;
 
+    //@OneToMany(mappedBy ="user")
+    //private List<User> users;
+
 
 
     public Long getId() {

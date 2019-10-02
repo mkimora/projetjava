@@ -1,6 +1,8 @@
 package com.kimoramoussa.kimora.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.NaturalId;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -24,6 +26,19 @@ public class User{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @JoinColumn(name = "partenaire_id" ,referencedColumnName = "id")
+    @ManyToOne(optional = false)
+    @Autowired(required = false)
+    @JsonIgnoreProperties("users")
+    private Partenaire partenaire;
+
+
+    @JoinColumn(name = "compte_id" ,referencedColumnName = "id")
+    @ManyToOne(optional = false)
+    @Autowired(required = false)
+    @JsonIgnoreProperties("users")
+    private Compte compte;
+
     @NotBlank
     @Size(min=3, max = 50)
     private String name;
@@ -46,6 +61,8 @@ public class User{
     @OneToMany(mappedBy ="user")
     //pour recuperer la liste des user dans dépôt
     private List<Depot> depots;
+
+
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "user_roles",
