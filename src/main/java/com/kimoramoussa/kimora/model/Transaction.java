@@ -10,6 +10,12 @@ import java.math.BigInteger;
 import java.util.Date;
 
 @Entity
+//pour respecter la convention de nomenclature d'une table
+@Table(name = "transaction", uniqueConstraints = {
+        @UniqueConstraint(columnNames = {
+                "code"
+        })
+})
 public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

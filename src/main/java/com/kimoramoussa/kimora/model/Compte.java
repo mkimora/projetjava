@@ -10,6 +10,12 @@ import java.math.BigInteger;
 import java.util.List;
 
 @Entity
+//pour respecter la convention de nomenclature d'une table
+@Table(name = "compte", uniqueConstraints = {
+        @UniqueConstraint(columnNames = {
+                "num_compte"
+        })
+})
 
 public class Compte {
     @Id
@@ -26,7 +32,7 @@ public class Compte {
     @OneToMany(mappedBy ="compte")
     private List<Depot> depots;
 
-    //@OneToMany(mappedBy ="users")
+    //@OneToMany(mappedBy ="compte")
     //private List<User> users;
 
 

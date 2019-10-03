@@ -8,6 +8,15 @@ import javax.validation.constraints.Size;
 import java.util.List;
 
 @Entity
+//pour respecter la convention de nomenclature d'une table
+@Table(name = "partenaire", uniqueConstraints = {
+        @UniqueConstraint(columnNames = {
+                "username"
+        }),
+        @UniqueConstraint(columnNames = {
+                "email"
+        })
+})
 public class Partenaire {
 
     @Id
@@ -15,9 +24,6 @@ public class Partenaire {
     private Long id;
 
 
-    @NotBlank
-    @Size(min=3, max = 50)
-    private String nom_complet_u;
 
     @NotBlank
     @Size(min=3, max = 50)
@@ -25,11 +31,8 @@ public class Partenaire {
 
     @NotBlank
     @Size(min=3, max = 50)
-    private String raison_sociale;
+    private String email;
 
-    @NotBlank
-    @Size(min=3, max = 50)
-    private int ninea;
 
     @NotBlank
     @Size(min=3, max = 50)
@@ -37,18 +40,28 @@ public class Partenaire {
 
     @NotBlank
     @Size(min=3, max = 50)
-    private int telephone;
+    private String ninea;
 
     @NotBlank
     @Size(min=3, max = 50)
-    private String email;
+    private String nom_complet_u;
+
+    @NotBlank
+    @Size(min=3, max = 50)
+    private String raison_sociale;
+
+    @NotBlank
+    @Size(min=6, max = 50)
+    private String telephone;
 
     @NotBlank
     @Size(min=3, max = 50)
     private String username;
 
+
+
     @OneToMany(mappedBy ="partenaire")
-    //pour recuperer la liste des comptes dans partenaire
+    //pour récupèrer la liste de comptes dans partenaire
     private List<Compte> comptes;
 
     //@OneToMany(mappedBy ="user")
@@ -88,11 +101,11 @@ public class Partenaire {
         this.raison_sociale = raison_sociale;
     }
 
-    public int getNinea() {
+    public String getNinea() {
         return ninea;
     }
 
-    public void setNinea(int ninea) {
+    public void setNinea(String ninea) {
         this.ninea = ninea;
     }
 
@@ -104,11 +117,11 @@ public class Partenaire {
         this.etat_u = etat_u;
     }
 
-    public int getTelephone() {
+    public String getTelephone() {
         return telephone;
     }
 
-    public void setTelephone(int telephone) {
+    public void setTelephone(String telephone) {
         this.telephone = telephone;
     }
 

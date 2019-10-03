@@ -1,6 +1,8 @@
 package com.kimoramoussa.kimora.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.NaturalId;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -13,6 +15,7 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
+//pour respecter la convention de nomenclature d'une table
 @Table(name = "users", uniqueConstraints = {
         @UniqueConstraint(columnNames = {
                 "username"
@@ -21,6 +24,9 @@ import java.util.Set;
                 "email"
         })
 })
+@Data
+//c'est pour les clés étrangères
+@EqualsAndHashCode(exclude = "partenaire, compte")
 public class User{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -49,13 +55,22 @@ public class User{
 
     @NaturalId
     @NotBlank
-    @Size(max = 50)
+    @Size(min=3, max = 50)
     @Email
     private String email;
 
     @NotBlank
-    @Size(min=6, max = 100)
+    @Size(min=3, max = 100)
     private String password;
+
+    @NotBlank
+    @Size(min=6, max = 50)
+    private String telephone;
+
+
+    @NotBlank
+    @Size(min=5, max = 50)
+    private String statut;
 
 
     @OneToMany(mappedBy ="user")
@@ -72,11 +87,14 @@ public class User{
 
     public User() {}
 
-    public User(String name, String username, String email, String password) {
+
+    public User(String name, String username, String email, String password, String telephone, String statut) {
         this.name = name;
         this.username = username;
         this.email = email;
         this.password = password;
+        this.telephone = telephone;
+        this.statut = statut;
     }
 
     public Long getId() {
@@ -125,5 +143,21 @@ public class User{
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    public String getStatut() {
+        return statut;
+    }
+
+    public void setStatut(String statut) {
+        this.statut = statut;
+    }
+
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
     }
 }

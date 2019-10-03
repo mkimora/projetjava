@@ -5,8 +5,39 @@ public class RegistrationUser {
     private String name;
     private String password;
     private String username;
-    private String profil;
-    private int compte_id;
+    private String statut;
+    private String telephone;
+
+
+    public Long getProfil() {
+        return profil;
+    }
+
+    public void setProfil(Long profil) {
+        this.profil = profil;
+    }
+
+    public Compte getCompte() {
+        return compte;
+    }
+
+    public void setCompte(Compte compte) {
+        this.compte = compte;
+    }
+
+    public Partenaire getPartenaire() {
+        return partenaire;
+    }
+
+    public void setPartenaire(Partenaire partenaire) {
+        this.partenaire = partenaire;
+    }
+
+    private Long profil;
+    //pour récupèrer une clé étrangère
+    private Compte compte;
+    private Partenaire partenaire;
+
 
     public String getEmail() {
         return email;
@@ -40,29 +71,21 @@ public class RegistrationUser {
         this.username = username;
     }
 
-    public String getProfil() {
-        return profil;
+    public String getStatut() {
+        return statut;
     }
 
-    public void setProfil(String profil) {
-        this.profil = profil;
+    public void setStatut(String statut) {
+        this.statut = statut;
     }
 
-    public int getCompte_id() {
-        return compte_id;
+
+    public String getTelephone() {
+        return telephone;
     }
 
-    public void setCompte_id(int compte_id) {
-        this.compte_id = compte_id;
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
     }
 
-    public int getPartenaire_id() {
-        return partenaire_id;
-    }
-
-    public void setPartenaire_id(int partenaire_id) {
-        this.partenaire_id = partenaire_id;
-    }
-
-    private int partenaire_id;
 }

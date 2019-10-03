@@ -11,6 +11,8 @@ import java.math.BigInteger;
 import java.util.Date;
 
 @Entity
+//pour respecter la convention de nomenclature d'une table et donner les contraintes
+@Table(name = "depot")
 public class Depot {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
