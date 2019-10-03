@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
-import java.math.BigInteger;
 import java.util.List;
 
 @Entity
@@ -22,11 +21,12 @@ public class Compte {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
+//partenaire_id = name dans la bdd
     @JoinColumn(name = "partenaire_id" ,referencedColumnName = "id")
     @ManyToOne(optional = false)
     @Autowired(required = false)
     @JsonIgnoreProperties("compte")
+    //partenaire = nom dans la classe
     private Partenaire partenaire;
 
     @OneToMany(mappedBy ="compte")
@@ -36,15 +36,9 @@ public class Compte {
     //private List<User> users;
 
 
+    private String num_compte;
 
-    @NotBlank
-    @Size(min=3, max = 50)
-    private int num_compte;
-
-    @NotBlank
-    @Size(min=1, max = 50)
-    private BigInteger solde_c;
-
+    private int solde_c;
 
 
     public Long getId() {
@@ -55,19 +49,19 @@ public class Compte {
         this.id = id;
     }
 
-    public int getNum_compte() {
+    public String getNum_compte() {
         return num_compte;
     }
 
-    public void setNum_compte(int num_compte) {
+    public void setNum_compte(String num_compte) {
         this.num_compte = num_compte;
     }
 
-    public BigInteger getSolde_c() {
+    public int getSolde_c() {
         return solde_c;
     }
 
-    public void setSolde_c(BigInteger solde_c) {
+    public void setSolde_c(int solde_c) {
         this.solde_c = solde_c;
     }
 
