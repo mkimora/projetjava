@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.util.HashSet;
 import java.util.List;
@@ -32,48 +31,38 @@ public class User{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+
+
     @JoinColumn(name = "partenaire_id" ,referencedColumnName = "id")
     @ManyToOne(optional = false)
-    @Autowired(required = false)
     @JsonIgnoreProperties("users")
     private Partenaire partenaire;
 
 
     @JoinColumn(name = "compte_id" ,referencedColumnName = "id")
     @ManyToOne(optional = false)
-    @Autowired(required = false)
     @JsonIgnoreProperties("users")
     private Compte compte;
 
-    @NotBlank
-    @Size(min=3, max = 50)
+
     private String name;
 
-    @NotBlank
-    @Size(min=3, max = 50)
+
     private String username;
 
     @NaturalId
-    @NotBlank
-    @Size(min=3, max = 50)
     @Email
     private String email;
 
-    @NotBlank
-    @Size(min=3, max = 100)
     private String password;
 
-    @NotBlank
-    @Size(min=6, max = 50)
     private String telephone;
 
 
-    @NotBlank
-    @Size(min=5, max = 50)
     private String statut;
 
 
-    @OneToMany(mappedBy ="user")
+    @OneToMany(mappedBy ="users")
     //pour recuperer la liste des user dans dépôt
     private List<Depot> depots;
 
@@ -159,5 +148,27 @@ public class User{
 
     public void setTelephone(String telephone) {
         this.telephone = telephone;
+    }
+
+    public Partenaire getPartenaire() { return partenaire; }
+
+    public void setPartenaire(Partenaire partenaire) {
+        this.partenaire = partenaire;
+    }
+
+    public Compte getCompte() {
+        return compte;
+    }
+
+    public void setCompte(Compte compte) {
+        this.compte = compte;
+    }
+
+    public List<Depot> getDepots() {
+        return depots;
+    }
+
+    public void setDepots(List<Depot> depots) {
+        this.depots = depots;
     }
 }

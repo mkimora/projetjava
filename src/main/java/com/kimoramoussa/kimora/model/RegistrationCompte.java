@@ -6,7 +6,7 @@ public class RegistrationCompte {
 
     private int num_compte;
 
-    private BigInteger 	solde_c;
+    private int	solde;
 
     public int getNum_compte() {
         return num_compte;
@@ -16,12 +16,12 @@ public class RegistrationCompte {
         this.num_compte = num_compte;
     }
 
-    public BigInteger getSolde_c() {
-        return solde_c;
+    public int getSolde() {
+        return solde;
     }
 
-    public void setSolde_c(BigInteger solde_c) {
-        this.solde_c = solde_c;
+    public void setSolde_c(int solde_c) {
+        this.solde = solde_c;
     }
 
 

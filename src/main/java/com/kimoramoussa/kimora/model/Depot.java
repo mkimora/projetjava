@@ -11,7 +11,7 @@ import java.math.BigInteger;
 import java.util.Date;
 
 @Entity
-//pour respecter la convention de nomenclature d'une table et donner les contraintes
+//pour respecter la convention de nomenclature d'une table
 @Table(name = "depot")
 public class Depot {
     @Id
@@ -22,29 +22,24 @@ public class Depot {
     @JoinColumn(name = "user_id" ,referencedColumnName = "id")
     @ManyToOne(optional = false)
     @JsonIgnoreProperties("depot")
-    private User user;
+    private User users;
 
     //migration de compte_id
     @JoinColumn(name = "compte_id" ,referencedColumnName = "id")
     @ManyToOne(optional = false)
-    @Autowired(required = false)
-
     @JsonIgnoreProperties("depot")
     private Compte compte;
 
 
-    @NotBlank
-    @Size(min=3, max = 50)
     private BigInteger solde_anterieur;
 
-    @NotBlank
-    @Size(min=3, max = 50)
     private BigInteger nouveau_solde;
 
-    @NotBlank
-    @Size(min=3, max = 50)
     @DateTimeFormat(pattern ="yyyy-MM-dd")
     private Date date_depot;
+
+    private Double montant;
+
 
     public Long getId() {
         return id;
@@ -76,5 +71,31 @@ public class Depot {
 
     public void setDate_depot(Date date_depot) {
         this.date_depot = date_depot;
+    }
+
+    public void setUser(User user) {
+    }
+
+    public User getUsers() {
+        return users;
+    }
+
+    public void setUsers(User users) {
+        this.users = users;
+    }
+
+    public Compte getCompte() {
+        return compte;
+    }
+
+    public Double getMontant() {
+        return montant;
+    }
+
+    public void setMontant(Double montant) {
+        this.montant = montant;
+    }
+
+    public void setCompte(Compte compte) {
     }
 }

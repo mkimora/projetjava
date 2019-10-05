@@ -1,5 +1,7 @@
 package com.kimoramoussa.kimora.model;
 
+import java.math.BigInteger;
+
 public class RegistrationUser {
     private String email;
     private String name;
@@ -7,7 +9,9 @@ public class RegistrationUser {
     private String username;
     private String statut;
     private String telephone;
+    private Long profil;
 
+    private Double montant;
 
     public Long getProfil() {
         return profil;
@@ -33,7 +37,6 @@ public class RegistrationUser {
         this.partenaire = partenaire;
     }
 
-    private Long profil;
     //pour récupèrer une clé étrangère
     private Compte compte;
     private Partenaire partenaire;
@@ -88,4 +91,12 @@ public class RegistrationUser {
         this.telephone = telephone;
     }
 
+
+    public Double getMontant() {
+        return montant;
+    }
+
+    public void setMontant(Double montant) {
+        this.montant = montant;
+    }
 }

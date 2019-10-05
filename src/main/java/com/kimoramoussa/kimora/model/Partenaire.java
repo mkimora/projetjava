@@ -3,7 +3,6 @@ package com.kimoramoussa.kimora.model;
 
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.util.List;
 
@@ -25,37 +24,20 @@ public class Partenaire {
 
 
 
-    @NotBlank
-    @Size(min=3, max = 50)
     private String 	adresse_u;
 
-    @NotBlank
-    @Size(min=3, max = 50)
     private String email;
 
-
-    @NotBlank
-    @Size(min=3, max = 50)
     private String etat_u;
 
-    @NotBlank
-    @Size(min=3, max = 50)
     private String ninea;
 
-    @NotBlank
-    @Size(min=3, max = 50)
     private String nom_complet_u;
 
-    @NotBlank
-    @Size(min=3, max = 50)
     private String raison_sociale;
 
-    @NotBlank
-    @Size(min=6, max = 50)
     private String telephone;
 
-    @NotBlank
-    @Size(min=3, max = 50)
     private String username;
 
 

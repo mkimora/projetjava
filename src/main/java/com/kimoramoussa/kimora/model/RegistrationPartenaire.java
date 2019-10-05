@@ -1,7 +1,9 @@
 package com.kimoramoussa.kimora.model;
 
-public class RegistrationPartenaire {
+import java.math.BigInteger;
 
+public class RegistrationPartenaire {
+//partenaire
     private String adresse_u;
     private String email;
     private String etat_u;
@@ -10,6 +12,27 @@ public class RegistrationPartenaire {
     private String raison_sociale;
     private String telephone;
     private String username;
+
+
+
+    //user
+
+
+    private String name;
+    private String password;
+
+    private String statut;
+
+    private Long profil;
+
+
+
+
+    //compte
+    private int num_compte;
+    private BigInteger solde_c;
+
+
 
     public String getAdresse_u() {
         return adresse_u;
@@ -72,5 +95,58 @@ public class RegistrationPartenaire {
     public void setUsername(String username) {
         this.username = username;
     }
+
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getStatut() {
+        return statut;
+    }
+
+    public void setStatut(String statut) {
+        this.statut = statut;
+    }
+
+    public Long getProfil() {
+        return profil;
+    }
+
+    public void setProfil(Long profil) {
+        this.profil = profil;
+    }
+
+    public int getNum_compte() {
+        return num_compte;
+    }
+
+    public void setNum_compte(int num_compte) {
+        this.num_compte = num_compte;
+    }
+
+    public BigInteger getSolde_c() {
+        return solde_c;
+    }
+
+    public void setSolde_c(BigInteger solde_c) {
+        this.solde_c = solde_c;
+    }
+
+
+
+
 
 }

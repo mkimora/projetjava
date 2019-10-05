@@ -25,4 +25,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
         return UserPrinciple.build(user);
     }
+
+    public User getUserConnecte() {
+        return null;
+    }
 }
