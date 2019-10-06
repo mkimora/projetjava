@@ -25,7 +25,7 @@ public class PartenaireController {
 
     //liste des partenaires
     //Authorisation par défaut
-    @PreAuthorize("hasAuthority('ROLE_SUPERADMIN')")
+    //@PreAuthorize("hasAuthority('ROLE_SUPERADMIN')")
     @GetMapping(value = "/listep")
     public List<Partenaire> liste(){
 
@@ -45,7 +45,7 @@ public class PartenaireController {
     @Autowired
     PasswordEncoder encoder;
 
-    //@PreAuthorize("hasAuthority('ROLE_SUPERADMIN')")
+    @PreAuthorize("hasAuthority('ROLE_SUPERADMIN')")
     @PostMapping(value = "/addparte",consumes = (MediaType.APPLICATION_JSON_VALUE))
     //Ajout partenaire
     public Partenaire addpartenaire(@RequestBody(required = false) RegistrationPartenaire registrationPartenaire ) {
@@ -58,7 +58,6 @@ public class PartenaireController {
         p.setRaison_sociale(registrationPartenaire.getRaison_sociale());
         p.setTelephone(registrationPartenaire.getTelephone());
         p.setUsername(registrationPartenaire.getUsername());
-
         partenaireRepository.save(p);
 
 

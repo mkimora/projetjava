@@ -29,7 +29,7 @@ public class UserController {
 
     //liste des users
     //Authorisation par défaut
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    //@PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @GetMapping(value = "/liste")
     public List<User> liste(){
 
