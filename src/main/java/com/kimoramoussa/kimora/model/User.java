@@ -45,8 +45,8 @@ public class User{
     private Compte compte;
 
 
-    private String name;
 
+    private String name;
 
     private String username;
 
@@ -58,6 +58,7 @@ public class User{
 
     private String telephone;
 
+    private String adresse;
 
     private String statut;
 
@@ -77,13 +78,14 @@ public class User{
     public User() {}
 
 
-    public User(String name, String username, String email, String password, String telephone, String statut) {
+    public User(String name, String username, String email, String password, String telephone, String statut, String adresse) {
         this.name = name;
         this.username = username;
         this.email = email;
         this.password = password;
         this.telephone = telephone;
         this.statut = statut;
+        this.adresse = adresse;
     }
 
     public Long getId() {
@@ -162,6 +164,14 @@ public class User{
 
     public void setCompte(Compte compte) {
         this.compte = compte;
+    }
+
+    public String getAdresse() {
+        return adresse;
+    }
+
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
     }
 
     public List<Depot> getDepots() {

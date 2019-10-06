@@ -20,9 +20,8 @@ public class RegistrationPartenaire {
 
     private String name;
     private String password;
-
     private String statut;
-
+    private String adresse;
     private Long profil;
 
 
@@ -145,8 +144,11 @@ public class RegistrationPartenaire {
         this.solde_c = solde_c;
     }
 
+    public String getAdresse() {
+        return adresse;
+    }
 
-
-
-
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
+    }
 }

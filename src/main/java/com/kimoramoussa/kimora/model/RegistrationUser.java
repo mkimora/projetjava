@@ -10,6 +10,7 @@ public class RegistrationUser {
     private String statut;
     private String telephone;
     private Long profil;
+    private String adresse;
 
     private Double montant;
 
@@ -91,6 +92,13 @@ public class RegistrationUser {
         this.telephone = telephone;
     }
 
+    public String getAdresse() {
+        return adresse;
+    }
+
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
+    }
 
     public Double getMontant() {
         return montant;

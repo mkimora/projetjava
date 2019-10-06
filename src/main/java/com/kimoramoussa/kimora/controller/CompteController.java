@@ -3,10 +3,12 @@ package com.kimoramoussa.kimora.controller;
 
 import com.kimoramoussa.kimora.model.Compte;
 import com.kimoramoussa.kimora.model.RegistrationCompte;
+import com.kimoramoussa.kimora.model.User;
 import com.kimoramoussa.kimora.repository.CompteRepository;
 import com.kimoramoussa.kimora.services.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
@@ -54,5 +56,7 @@ public class CompteController {
         //return veut dire arrête tout ce que tu fais et retourne moi ça
         return compteRepository.save(c);
     }
+
+
 
     }
